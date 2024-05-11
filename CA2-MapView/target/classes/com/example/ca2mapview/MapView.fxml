@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.geometry.Insets?>
+
+<?import javafx.collections.FXCollections?>
+<?import java.lang.String?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.ca2mapview.MapViewController">
+    <MenuBar>
+        <Menu text="File">
+            <MenuItem text="Open Map" onAction="#openImage"/>
+            <MenuItem text="Exit" onAction="#closeApplication"/>
+        </Menu>
+    </MenuBar>
+    <AnchorPane>
+        <Canvas fx:id="canvas" width="800" height="600" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="10.0" AnchorPane.bottomAnchor="50.0"/>
+        <HBox spacing="10" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+            <Button text="Find Route" onAction="#findRoute"/>
+            <ComboBox fx:id="routeTypeCombo" promptText="Select Route Type">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Shortest"/>
+                        <String fx:value="Scenic"/>
+                        <String fx:value="Avoid Traffic"/>
+                    </FXCollections>
+                </items>
+            </ComboBox>
+            <Label text="Start:"/>
+            <TextField fx:id="startPoint"/>
+            <Label text="End:"/>
+            <TextField fx:id="endPoint"/>
+        </HBox>
+    </AnchorPane>
+</VBox>
